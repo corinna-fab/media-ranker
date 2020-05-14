@@ -13,6 +13,22 @@ class PizzasController < ApplicationController
     end 
   end
 
+  def new
+    @pizza = Pizza.new
+  end
+
+  def create
+    @pizza = Pizza.new(pizza_params)
+
+    if @pizza.save
+      redirect_to @pizza
+      return
+    else
+      render :new, status: :bad_request
+      return
+    end 
+  end
+
   def edit
     pizza_id = params[:id]
     @pizza = Pizza.find_by(id: pizza_id)
