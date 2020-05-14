@@ -73,4 +73,37 @@ describe PizzasController do
     end
   end
 
+  describe "edit" do
+    before do 
+      @pizza = Pizza.create(
+        name: 'Mad Max',
+        crust: 'Gluten free',
+        sauce: 'Spicy Marinara',
+        cheese: 'Vegan Mozz',
+        toppings: 'Sausage Rat Tails Horseradish'
+      )
+    end
+
+    # Your tests go here
+    it "can get the edit page for an existing pizza" do
+      # Your code here
+      get edit_pizza_path(Pizza.first.id)
+      
+      # Assert
+      must_respond_with :success
+    end
+    
+    it "will respond with redirect when attempting to edit a nonexistant pizza" do
+      # Your code here
+      get edit_pizza_path(-1)
+      
+      # Assert
+      must_respond_with :not_found
+    end
+  end
+
+  describe "update" do
+    # Your tests go here
+  end
+
 end
