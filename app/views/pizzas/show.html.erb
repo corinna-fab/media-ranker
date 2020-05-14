@@ -1,0 +1,20 @@
+<div class="pizza_card">
+  <h1><%= @pizza[:name]%></h1>
+  <br>
+  <h4>Crust:</h4>
+  <p><%= @pizza[:crust]%></p>
+  <h4>Sauce:</h4>
+  <p><%= @pizza[:sauce]%></p>
+  <h4>Cheese:</h4>
+  <p><%= @pizza[:cheese]%></p>
+  <h4>Toppings:</h4>
+  <p><%= @pizza[:toppings]%></p>
+</div>
+
+<div class="button-row"> 
+  <%= button_to "New Pizza", pizza_path(@pizza.id), method: :get, class: 'link' %>
+  <%= button_to "Edit Pizza", edit_pizza_path(@pizza.id), :method => :get, class: 'link' %>
+  </div>  <div class="button-row">
+  <%= button_to "Delete", pizza_path(@pizza.id),:method => :delete, class: 'link', data: {confirm: "Are you sure you would like to delete #{@pizza.name}?"} %>
+  <%= button_to "Return to Pizza List", pizzas_path, :method => :get, class: 'link' %>
+</div> 
