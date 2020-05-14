@@ -36,12 +36,6 @@ ActiveRecord::Schema.define(version: 2020_05_14_024743) do
   create_table "votes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "pizza_id"
-    t.bigint "user_id"
-    t.index ["pizza_id"], name: "index_votes_on_pizza_id"
-    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "votes", "pizzas"
-  add_foreign_key "votes", "users"
 end

@@ -1,34 +1,21 @@
 class UsersController < ApplicationController
-
-  it "can get to the login form" do
-    get login_path
-
-    must_respond_with :success
+  def login_form
+    @user = User.new
   end
 
-  describe "logging in" do
-    it "can login a new user" do
-    user = nil
-    
-    expect{
-      user = login()
-    }.must_differ "User.count",1
-
-    must_respond_with :redirect
-
-    expect(user).wont_be_nil
-    expect(session[:user_id]).must_equal user.id
-    expect(user.username).must_equal user_hash[:user][:username]
+  def login
+    name = params[:user][:name]
+    user = User.find_by(name: name)
+    if user
+      session[:user_id] = user.id
+      flash[:success] = "Successfully logged in as returning user #{name}"
+    else
+      user = User.create(name: name)
+      session[:user_id] = user.id
+      flash[:success] = "Successfully logged in as new user #{name}"
     end
 
-    it "can login an existing user" do
-      user = User.create(username: 'tellytubby')
-
-      expect{
-        login(user.username)
-      }.wont_change "User.count"
-
-      expect(session[:user_id]).must_equal user.id
-    end
+    redirect_to root_path
+    return
   end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
   post '/logout', to: 'users#logout', as: "logout"
 
-  get 'users/current', to 'users#current', as: "current_user"
+  get 'users/current', to: 'users#current', as: "current_user"
 
   root to: 'pizzas#index'
   resources :votes
