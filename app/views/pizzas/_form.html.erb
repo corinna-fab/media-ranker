@@ -1,0 +1,30 @@
+<% if @pizza.errors.any? %>
+  <ul class="errors">
+    <% @pizza.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @pizza, class: 'form-pizza' do |f| %>
+  <p>Please provide the following information to edit your book in our database:</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :crust %>
+  <%= f.text_field :crust %>
+
+  <%= f.label :sauce %>
+  <%= f.text_field :sauce %>
+
+  <%= f.label :cheese %>
+  <%= f.text_field :cheese %>
+
+  <%= f.label :toppings %>
+  <%= f.text_field :toppings %>
+
+  <%= f.submit "#{action_name} Pizza", class: "pizza-button" %>
+<% end %>
