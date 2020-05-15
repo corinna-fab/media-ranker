@@ -8,13 +8,12 @@ class UsersController < ApplicationController
     user = User.find_by(name: name)
     if user
       session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as returning user #{name}"
+      flash[:success] = "Successfully logged in as returning user #{user.name}"
     else
       user = User.create(name: name)
       session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as new user #{name}"
+      flash[:success] = "Successfully logged in as new user #{user.name}"
     end
-
     redirect_to root_path
     return
   end
