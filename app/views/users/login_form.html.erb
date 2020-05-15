@@ -1,7 +1,14 @@
-<%= form_with model: @user, url: login_path do |f| %>
-  <div>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-    <%= f.submit "Login", class: 'btn btn-primary' %>
+<%= form_with model: @user, local: true, class: 'login__form', url: login_path do |f| %>
+  <section class="flash-msg__section">
+    <% flash.each do |name, message| %>
+      <strong class="<%= name %>">
+        <%= message %>
+      </strong>
+    <% end %>
+  </section>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Login" %>
 <% end %>
