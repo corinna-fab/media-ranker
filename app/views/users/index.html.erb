@@ -4,11 +4,13 @@
 <table>
     <tr>
       <th>Username</th>
+      <th>Votes</th>
       <th>Joined</th>
     </tr>
   <% @users.each do |user|  %>
     <tr>
       <td><%= link_to user.name, user_path(user) %></td>
+      <td>To Come</td>
       <td><%= user.created_at.strftime("%m/%Y") %></td> 
     </tr>
   <% end %>
