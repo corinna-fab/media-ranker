@@ -1,7 +1,11 @@
 require "test_helper"
 
 describe UsersController do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe "index" do
+    # Your tests go here
+    it "should get index" do
+      get "/users"
+      must_respond_with :success
+    end
+  end
 end
