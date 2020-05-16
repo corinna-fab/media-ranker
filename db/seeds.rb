@@ -31,6 +31,26 @@ end
 puts "Added #{Pizza.count} pizza records"
 puts "#{pizza_failures.length} pizzas failed to save"
 
+users = [
+  {
+    name: "catrillionaire"
+  },
+  {
+    name: "bigbaby"
+  },
+  {
+    name: "passwordistaco"
+  }
+]
+
+count = 0
+users.each do |user|
+  if User.create(user)
+    count += 1
+  end
+end
+
+puts "Created #{count} users"
 
 # Since we set the primary key (the ID) manually on each of the
 # tables, we've got to tell postgres to reload the latest ID
