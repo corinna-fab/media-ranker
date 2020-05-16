@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "Successfully logged in as new user #{name}"
     end
-
+git
     redirect_to root_path
     return
   end
