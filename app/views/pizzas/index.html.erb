@@ -10,15 +10,16 @@
     <th>Toppings</th>
   </tr>
 <% @pizzas.each do |pizza| %>  
-  <tr>
-    <td><%= pizza.name %></td>
-    <td><%= pizza.crust %></td>  
-    <td><%= pizza.sauce %></td>  
-    <td><%= pizza.cheese %></td>  
-    <td><%= pizza.toppings %></td>  
-    <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
-    <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
-  </tr>
+    <tr>
+      <td><%= pizza.name %></td>
+      <td><%= pizza.crust %></td>  
+      <td><%= pizza.sauce %></td>  
+      <td><%= pizza.cheese %></td>  
+      <td><%= pizza.toppings %></td> 
+      <td><%= pizza.temperatures.empty? ? 'None' : pizza.temperatures[0].name %></td>  
+      <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
+      <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
+    </tr>
 <% end %>                      
 </table>
 
