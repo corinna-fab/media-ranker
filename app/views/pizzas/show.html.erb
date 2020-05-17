@@ -9,6 +9,17 @@
   <p><%= @pizza[:cheese]%></p>
   <h4>Toppings:</h4>
   <p><%= @pizza[:toppings]%></p>
+  <h4>Temperature:</h4>
+      <% if @pizza.temperatures.empty? %>
+        <%= form_with model: @pizza, class: 'form-pizza' do |f| %>
+          <p>Please provide the following information about your pizza:</p>
+          <%= f.label :temperatures %>
+          <%= f.select :temperatures, ['Cold', 'Hot', 'Reheated'] %>
+          <%= f.submit "Submit", class: "pizza-button" %>
+        <% end %>
+    <% else %>
+      <p><%= @pizza[:temperatures]%></p>
+    <% end %>
 </div>
 
 <div class="button-row"> 

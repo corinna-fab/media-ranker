@@ -52,6 +52,10 @@ class PizzasController < ApplicationController
     end
   end
 
+  def top
+    @pizzas = Pizza.all
+  end
+
   private
 
   def pizza_params

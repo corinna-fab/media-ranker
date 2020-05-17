@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get 'users/current', to: 'users#current', as: "current_user"
 
-  root to: 'pizzas#index'
+  get 'pizzas/top', to: 'pizzas#top', as: "top_pizzas"
+  root to: 'pizzas#top'
   resources :votes
     
   # resources :trips, except: [:index]
