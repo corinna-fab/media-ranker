@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :votes
     
   # resources :trips, except: [:index]
-
   resources :pizzas do
     resources :votes#, only: [:new, :show, :index]
   end

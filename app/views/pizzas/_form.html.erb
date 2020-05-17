@@ -26,5 +26,8 @@
   <%= f.label :toppings %>
   <%= f.text_field :toppings %>
 
+  <%= f.label :temperatures %>
+  <%= f.select :temperatures, ['Cold', 'Hot', 'Reheated'] %>
+
   <%= f.submit "Submit", class: "pizza-button" %>
 <% end %>
