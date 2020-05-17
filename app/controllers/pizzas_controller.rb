@@ -45,10 +45,13 @@ class PizzasController < ApplicationController
       head :not_found
       return
     elsif @pizza.update(pizza_params)
-      redirect_to @pizza
+      flash[:success] = "Pizza updated successfully"
+      redirect_to pizza_path
       return
     else
+      flash.now[:error] = "Something happened. Pizza not updated."
       render :edit, status: :bad_request
+      return
     end
   end
 
