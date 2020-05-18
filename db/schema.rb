@@ -26,7 +26,11 @@ ActiveRecord::Schema.define(version: 2020_05_15_162218) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "pizzas_temperatures_joins", force: :cascade do |t|
+  create_table "pizzas_temperatures", force: :cascade do |t|
+    t.bigint "pizza_id"
+    t.bigint "temperature_id"
+    t.index ["pizza_id"], name: "index_pizzas_temperatures_on_pizza_id"
+    t.index ["temperature_id"], name: "index_pizzas_temperatures_on_temperature_id"
   end
 
   create_table "temperatures", force: :cascade do |t|

@@ -1,6 +1,6 @@
 class PizzasController < ApplicationController
   def index
-    @pizzas = Pizza.all
+    @pizzas = Pizza.paginate(:page=>params[:page],:per_page=>15).order(updated_at: :desc)
   end
 
   def show
@@ -45,17 +45,24 @@ class PizzasController < ApplicationController
       head :not_found
       return
     elsif @pizza.update(pizza_params)
-      redirect_to @pizza
+      flash[:success] = "Pizza updated successfully"
+      redirect_to pizza_path
       return
     else
+      flash.now[:error] = "Something happened. Pizza not updated."
       render :edit, status: :bad_request
+      return
     end
+  end
+
+  def top
+    @pizzas = Pizza.all
   end
 
   private
 
   def pizza_params
-    return params.require(:pizza).permit(:name, :crust, :sauce, :cheese, :toppings)
+    return params.require(:pizza).permit(:name, :crust, :sauce, :cheese, :toppings, temperature_ids: [])
   end
   
 

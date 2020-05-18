@@ -1,16 +1,37 @@
 
 <body >
-<h2 class="title">Pizza Page</h2>
+<h2 class="title">Pizza by Temperature</h2>
 
+<h3 class="title">Cold Pizza</h3>
 <% @pizzas.each do |pizza| %>
   <% if ! pizza.temperatures.empty? %>
     <% if pizza.temperatures[0].name == 'Cold' %>
-    <p><%= pizza %>
+    <p><%= pizza.name %>
     <% end %>
   <% end %>
 <% end %>
 
-<table>                         
+<h3 class="title">Reheated Pizza</h3>
+<% @pizzas.each do |pizza| %>
+  <% if ! pizza.temperatures.empty? %>
+    <% if pizza.temperatures[0].name == 'Reheated' %>
+    <p><%= pizza.name %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h3 class="title">Hot Pizza</h3>
+<% @pizzas.each do |pizza| %>
+  <% if ! pizza.temperatures.empty? %>
+    <% if pizza.temperatures[0].name == 'Hot' %>
+    <p><%= pizza.name %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%
+=begin%>
+ <table>                         
   <tr>                          
     <th>Name</th>
     <th>Crust</th>
@@ -30,6 +51,8 @@
       <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
     </tr>
 <% end %>                      
-</table>
-<%= will_paginate @pizzas %>
+</table> 
+<%
+=end%>
+
 </body>
