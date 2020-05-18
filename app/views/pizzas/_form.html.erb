@@ -27,7 +27,7 @@
   <%= f.text_field :toppings %>
 
   <%= f.label :temperatures %>
-  <%= f.select :temperatures, ['Cold', 'Hot', 'Reheated'] %>
+  <%= f.collection_check_boxes :temperature_ids, Temperature.all, :id, :name %>
 
   <%= f.submit "Submit", class: "pizza-button" %>
 <% end %>

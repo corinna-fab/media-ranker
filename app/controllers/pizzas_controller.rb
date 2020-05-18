@@ -1,6 +1,6 @@
 class PizzasController < ApplicationController
   def index
-    @pizzas = Pizza.all
+    @pizzas = Pizza.paginate(:page=>params[:page],:per_page=>15).order(updated_at: :desc)
   end
 
   def show
