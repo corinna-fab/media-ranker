@@ -20,9 +20,15 @@
         <li><%= link_to 'Add a Pizza', new_pizza_path %></li>
         <li><%= link_to 'All Pizzas', pizzas_path %></li>
         <li><%= link_to 'All Users', users_path %></li>
-        <li><%= link_to "Login", login_path %></li>
       </ul>
     </nav>
+    <div class="btn btn-info">
+      <% if session[:user_id] %>
+        <%= link_to "Log out from #{User.find_by(id: session[:user_id]).name}", logout_path, method: :post, :class => "btn" %>
+      <% else %>
+        <%= link_to "Login", login_path, :class => "btn" %>
+      <% end %>
+    </div>
   </header>
     <section class="flash-msg__section">
     <% flash.each do |name, message| %>
