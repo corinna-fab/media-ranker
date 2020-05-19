@@ -15,8 +15,8 @@
   <% else %>
     <%= form_with model: @pizza, class: 'form-pizza' do |f| %>
       <p>Please provide the following information about your pizza:</p>
-      <%= f.label :temperatures %>
-      <%= f.select :temperatures, ['Cold', 'Hot', 'Reheated'] %>
+        <%= f.label :temperatures %>
+        <%= f.collection_check_boxes :temperature_ids, Temperature.all, :id, :name %>
       <%= f.submit "Submit", class: "pizza-button" %>
     <% end %>
   <% end %>
