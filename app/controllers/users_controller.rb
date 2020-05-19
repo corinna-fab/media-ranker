@@ -8,8 +8,9 @@ class UsersController < ApplicationController
   end
 
   def login
-    name = params[:user][:name]
+    name = params[:name]
     user = User.find_by(name: name)
+
     if user
       session[:user_id] = user.id
       flash[:success] = "Successfully logged in as returning user #{user.name}"
@@ -18,6 +19,13 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "Successfully logged in as new user #{user.name}"
     end
+    redirect_to root_path
+    return
+  end
+
+  def logout
+    session[:user_id] = nil
+    flash[:success] = "You have successfully logged out."
     redirect_to root_path
     return
   end
