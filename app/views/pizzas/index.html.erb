@@ -2,14 +2,7 @@
 <body >
 <h2 class="title">Pizza Page</h2>
 
-<% @pizzas.each do |pizza| %>
-  <% if ! pizza.temperatures.empty? %>
-    <% if pizza.temperatures[0].name == 'Cold' %>
-    <p><%= pizza %>
-    <% end %>
-  <% end %>
-<% end %>
-
+<h3 class="title">Cold Pizza</h2>
 <table>                         
   <tr>                          
     <th>Name</th>
@@ -18,7 +11,8 @@
     <th>Cheese</th>
     <th>Toppings</th>
   </tr>
-<% @pizzas.each do |pizza| %>  
+  
+<% Pizza.pizzas_by_temperature("Cold").each do |pizza| %>  
     <tr>
       <td><%= pizza.name %></td>
       <td><%= pizza.crust %></td>  
@@ -31,5 +25,52 @@
     </tr>
 <% end %>                      
 </table>
-<%= will_paginate @pizzas %>
+
+<h3 class="title">Reheated Pizza</h2>
+<table>                         
+  <tr>                          
+    <th>Name</th>
+    <th>Crust</th>
+    <th>Sauce</th>
+    <th>Cheese</th>
+    <th>Toppings</th>
+  </tr>
+  
+<% Pizza.pizzas_by_temperature("Reheated").each do |pizza| %>  
+    <tr>
+      <td><%= pizza.name %></td>
+      <td><%= pizza.crust %></td>  
+      <td><%= pizza.sauce %></td>  
+      <td><%= pizza.cheese %></td>  
+      <td><%= pizza.toppings %></td> 
+      <td><%= pizza.temperatures.empty? ? 'None' : pizza.temperatures[0].name %></td>  
+      <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
+      <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
+    </tr>
+<% end %>                      
+</table>
+
+<h3 class="title">Hot Pizza</h2>
+<table>                         
+  <tr>                          
+    <th>Name</th>
+    <th>Crust</th>
+    <th>Sauce</th>
+    <th>Cheese</th>
+    <th>Toppings</th>
+  </tr>
+  
+<% Pizza.pizzas_by_temperature("Hot").each do |pizza| %>  
+    <tr>
+      <td><%= pizza.name %></td>
+      <td><%= pizza.crust %></td>  
+      <td><%= pizza.sauce %></td>  
+      <td><%= pizza.cheese %></td>  
+      <td><%= pizza.toppings %></td> 
+      <td><%= pizza.temperatures.empty? ? 'None' : pizza.temperatures[0].name %></td>  
+      <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
+      <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
+    </tr>
+<% end %>                      
+</table>
 </body>

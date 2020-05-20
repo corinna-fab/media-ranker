@@ -95,7 +95,7 @@ votes.each do |vote|
   end
 end
 
-# puts "Created #{count} vote"
+puts "Created #{count} vote"
 
 # Since we set the primary key (the ID) manually on each of the
 # tables, we've got to tell postgres to reload the latest ID
