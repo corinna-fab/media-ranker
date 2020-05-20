@@ -46,6 +46,11 @@ users = [
 count = 0
 users.each do |user|
   if User.create(user)
+    count += 1
+  end
+end
+
+puts "Created #{count} users"
 
 temperatures = [
   {
@@ -66,8 +71,31 @@ temperatures.each do |temperature|
   end
 end
 
-puts "Created #{count} users"
-puts "Created #{count} genres"
+puts "Created #{count} temperatures"
+
+votes = [
+  {
+    user_id: 1,
+    pizza_id: 1
+  },
+  {
+    user_id: 3,
+    pizza_id: 4
+  },  
+  {
+    user_id: 1,
+    pizza_id: 7
+  } 
+]
+
+# count = 0
+votes.each do |vote|
+  if Vote.create(vote)
+    # count += 1
+  end
+end
+
+# puts "Created #{count} vote"
 
 # Since we set the primary key (the ID) manually on each of the
 # tables, we've got to tell postgres to reload the latest ID

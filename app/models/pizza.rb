@@ -6,7 +6,7 @@ class Pizza < ApplicationRecord
   def self.pizzas_by_temperature(temperature_name)
     temperature_list = Temperature.find_by(name: temperature_name).pizzas
 
-    return temperature_list.order("temperatures.name")
+    return temperature_list.inspect
   end
 
 end
