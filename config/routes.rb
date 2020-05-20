@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pizzas#top'
+
   get '/login', to: 'users#login_form', as: "login"
   post '/login', to: 'users#login'
   post '/logout', to: 'users#logout', as: "logout"
@@ -9,13 +10,11 @@ Rails.application.routes.draw do
 
   get '/top', to: 'pizzas#top', as: "top_pizzas"
   
-  resources :votes
+  resources :votes, except: [:delete, :update, :edit]
     
-  # resources :trips, except: [:index]
-  resources :pizzas do
-    resources :votes#, only: [:new, :show, :index]
-  end
+  resources :pizzas
   
-  resources :users 
+  resources :users, except: [:delete]
 
+  patch "/pizzas/:id/upvote", to: "pizzas#upvote", as: "upvote"
 end

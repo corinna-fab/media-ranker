@@ -59,6 +59,31 @@ class PizzasController < ApplicationController
     @pizzas = Pizza.all
   end
 
+  def upvote
+    user = User.find_by(id: session[:user_id])
+
+    if @pizza.nil? || user.nil?
+      head :not_found
+      return
+    end
+
+    if user.pizzas.include? @pizza
+      flash[:warning] = "You have already voted on #{@pizza.name}!"
+    else
+      new_vote = Vote.new(user_id: user.id, pizza_id: @pizza.id)
+
+      if new_vote.save
+        flash[:success] = "You have successfully voted on #{@pizza.name}!"
+      else
+        render :new, status: :bad_request
+        return
+      end
+    end
+
+    redirect_to session.delete(:return_to)
+    return
+  end
+
   private
 
   def pizza_params
