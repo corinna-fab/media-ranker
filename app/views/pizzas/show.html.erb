@@ -9,6 +9,10 @@
   <p><%= @pizza[:cheese]%></p>
   <h4>Toppings:</h4>
   <p><%= @pizza[:toppings]%></p>
+    <h4>Votes:</h4>
+  <p>
+      <%= @pizza.votes.to_a.count %>
+  </p>
   <h4>Temperature:</h4>
   <% if @pizza.temperatures[0].class != NilClass %>
     </p><%= @pizza.temperatures[0].name %></p>
