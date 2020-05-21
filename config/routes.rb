@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   get '/top', to: 'pizzas#top', as: "top_pizzas"
   
-  resources :votes, except: [:delete, :update, :edit]
+  resources :votes, except: [:destroy, :update, :edit, :new]
     
   resources :pizzas
   
-  resources :users, except: [:delete]
+  resources :users, except: [:destroy, :edit, :new]
 
-  patch "/pizzas/:id/upvote", to: "pizzas#upvote", as: "upvote"
+  post "/pizzas/:id/upvote", to: "pizzas#upvote", as: "upvote"
 end

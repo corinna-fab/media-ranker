@@ -62,12 +62,15 @@ class PizzasController < ApplicationController
   def upvote
     user = User.find_by(id: session[:user_id])
 
-    if @pizza.nil? || user.nil?
+    if user.nil?
+      flash[:warning] = "You must be logged in to vote."
+      return
+    elsif user.votes.nil?
       head :not_found
       return
     end
 
-    if user.pizzas.include? @pizza
+    if user.votes.include? @pizza.id
       flash[:warning] = "You have already voted on #{@pizza.name}!"
     else
       new_vote = Vote.new(user_id: user.id, pizza_id: @pizza.id)
@@ -80,7 +83,7 @@ class PizzasController < ApplicationController
       end
     end
 
-    redirect_to session.delete(:return_to)
+    redirect_to pizza_path
     return
   end
 
