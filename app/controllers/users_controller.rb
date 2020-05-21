@@ -3,6 +3,8 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  #TODO: user show page
+
   def login_form
     @user = User.new
   end
@@ -54,4 +56,6 @@ class UsersController < ApplicationController
   def user_params
     return params.require(:user).permit(:name)
   end
+
+  
 end

@@ -1,4 +1,6 @@
 class PizzasController < ApplicationController
+  before_action :require_login, only: [:upvote]
+
   def index
     @pizzas = Pizza.paginate(:page=>params[:page],:per_page=>15).order(updated_at: :desc)
   end

@@ -1,23 +1,28 @@
-
+<%
+=begin%>
+ TODO: DESCENDING ORDER 
+<%
+=end%>
 <body >
   <h2 class="title">Pizza by Temperature</h2>
 
   <div>
-    <h3 class="title">Cold Pizza</h3>
+    <h3 class="title">Top Cold Pizzas</h3>
     <% if ! Pizza.pizzas_by_temperature('Cold').nil? %>
       <% Pizza.top_ten("Cold").each do |pizza| %>
-        <%= pizza.name %>
-        <br>
+        <%= link_to pizza.name, pizza_path(pizza.id) %>
+        <p>Votes:<%= pizza.votes.count %></p>
       <% end%>
     <% else %>
       <p>There are no pizzas in this category</p>
     <% end %>
   </div>
   <div>
-    <h3 class="title">Reheated Pizza</h3>
+    <h3 class="title">Top Reheated Pizzas</h3>
     <% if ! Pizza.pizzas_by_temperature('Reheated').nil? %>
       <% Pizza.top_ten("Reheated").each do |pizza| %>
-        <%= pizza.name %>
+        <%= link_to pizza.name, pizza_path(pizza.id) %>
+        <p>Votes:<%= pizza.votes.count %></p>
         <br>
       <% end%>
     <% else %>
@@ -25,11 +30,11 @@
     <% end %>
   </div>
   <div>
-    <h3 class="title">Hot Pizza</h3>
+    <h3 class="title">Top Hot Pizzas</h3>
     <% if ! Pizza.pizzas_by_temperature('Hot').nil? %>
       <% Pizza.top_ten("Hot").each do |pizza| %>
-        <%= pizza.name %>
-        <br>
+        <%= link_to pizza.name, pizza_path(pizza.id) %>
+        <p>Votes:<%= pizza.votes.count %></p>
       <% end%>
     <% else %>
       <p>There are no pizzas in this category</p>
