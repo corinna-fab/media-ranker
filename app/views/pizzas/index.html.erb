@@ -10,6 +10,7 @@
     <th>Sauce</th>
     <th>Cheese</th>
     <th>Toppings</th>
+    <th>Vote Count</th>
   </tr>
 <% if ! Pizza.pizzas_by_temperature('Cold').nil? %> 
   <% Pizza.pizzas_by_temperature("Cold").each do |pizza| %>  
@@ -38,6 +39,7 @@
     <th>Sauce</th>
     <th>Cheese</th>
     <th>Toppings</th>
+    <th>Vote Count</th>
   </tr>
   
 <% if ! Pizza.pizzas_by_temperature('Reheated').nil? %> 
@@ -67,7 +69,7 @@
     <th>Sauce</th>
     <th>Cheese</th>
     <th>Toppings</th>
-    <th>Votes</th>
+    <th>Vote Count</th>
   </tr>
   
 <% if ! Pizza.pizzas_by_temperature('Hot').nil? %> 
