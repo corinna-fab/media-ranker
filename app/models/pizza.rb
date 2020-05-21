@@ -5,16 +5,16 @@ class Pizza < ApplicationRecord
 
 
   def self.pizzas_by_temperature(temperature_name)
-    temperature_list = Temperature.find_by(name: temperature_name).pizzas.to_a
-
-    return temperature_list
+    if ! Temperature.find_by(name: temperature_name).nil?
+      temperature_list = Temperature.find_by(name: temperature_name).pizzas.to_a
+      return temperature_list
+    end
   end
 
   def self.top_ten(temperature_name)
-    # return "No pizzas are currently listed" if temperature_list.nil?
-
-    temperature_list = Temperature.find_by(name: temperature_name).pizzas.to_a[0..9]
-
-    return temperature_list
+    if ! Temperature.find_by(name: temperature_name).nil? 
+      temperature_list = Temperature.find_by(name: temperature_name).pizzas.to_a[0..9]
+      return temperature_list
+    end
   end
 end

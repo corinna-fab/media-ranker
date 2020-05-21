@@ -11,21 +11,24 @@
     <th>Cheese</th>
     <th>Toppings</th>
   </tr>
-  
-<% Pizza.pizzas_by_temperature("Cold").each do |pizza| %>  
-    <tr>
-      <td><%= pizza.name %></td>
-      <td><%= pizza.crust %></td>  
-      <td><%= pizza.sauce %></td>  
-      <td><%= pizza.cheese %></td>  
-      <td><%= pizza.toppings %></td>
-      <td><%= pizza.votes.count %></td> 
-      <td><%= pizza.temperatures.empty? ? 'None' : pizza.temperatures[0].name %></td>  
-      <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
-      <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
-    </tr>
+<% if ! Pizza.pizzas_by_temperature('Cold').nil? %> 
+  <% Pizza.pizzas_by_temperature("Cold").each do |pizza| %>  
+      <tr>
+        <td><%= pizza.name %></td>
+        <td><%= pizza.crust %></td>  
+        <td><%= pizza.sauce %></td>  
+        <td><%= pizza.cheese %></td>  
+        <td><%= pizza.toppings %></td>
+        <td><%= pizza.votes.count %></td> 
+        <td><%= pizza.temperatures.empty? ? 'None' : pizza.temperatures[0].name %></td>  
+        <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
+        <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
+      </tr>
+  <% end %>
+<% else %>
+      <p>There are no pizzas in this category</p>
 <% end %>                      
-</table>
+  </table>
 
 <h3 class="title">Reheated Pizza</h2>
 <table>                         
@@ -37,20 +40,24 @@
     <th>Toppings</th>
   </tr>
   
-<% Pizza.pizzas_by_temperature("Reheated").each do |pizza| %>  
-    <tr>
-      <td><%= pizza.name %></td>
-      <td><%= pizza.crust %></td>  
-      <td><%= pizza.sauce %></td>  
-      <td><%= pizza.cheese %></td>  
-      <td><%= pizza.toppings %></td> 
-      <td><%= pizza.votes.count %></td>
-      <td><%= pizza.temperatures.empty? ? 'None' : pizza.temperatures[0].name %></td>  
-      <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
-      <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
-    </tr>
+<% if ! Pizza.pizzas_by_temperature('Reheated').nil? %> 
+  <% Pizza.pizzas_by_temperature("Reheated").each do |pizza| %>  
+      <tr>
+        <td><%= pizza.name %></td>
+        <td><%= pizza.crust %></td>  
+        <td><%= pizza.sauce %></td>  
+        <td><%= pizza.cheese %></td>  
+        <td><%= pizza.toppings %></td>
+        <td><%= pizza.votes.count %></td> 
+        <td><%= pizza.temperatures.empty? ? 'None' : pizza.temperatures[0].name %></td>  
+        <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
+        <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
+      </tr>
+  <% end %>
+<% else %>
+      <p>There are no pizzas in this category</p>
 <% end %>                      
-</table>
+  </table>
 
 <h3 class="title">Hot Pizza</h2>
 <table>                         
@@ -63,18 +70,22 @@
     <th>Votes</th>
   </tr>
   
-<% Pizza.pizzas_by_temperature("Hot").each do |pizza| %>  
-    <tr>
-      <td><%= pizza.name %></td>
-      <td><%= pizza.crust %></td>  
-      <td><%= pizza.sauce %></td>  
-      <td><%= pizza.cheese %></td>  
-      <td><%= pizza.toppings %></td> 
-      <td><%= pizza.votes.count %></td>
-      <td><%= pizza.temperatures.empty? ? 'None' : pizza.temperatures[0].name %></td>  
-      <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
-      <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
-    </tr>
+<% if ! Pizza.pizzas_by_temperature('Hot').nil? %> 
+  <% Pizza.pizzas_by_temperature("Hot").each do |pizza| %>  
+      <tr>
+        <td><%= pizza.name %></td>
+        <td><%= pizza.crust %></td>  
+        <td><%= pizza.sauce %></td>  
+        <td><%= pizza.cheese %></td>  
+        <td><%= pizza.toppings %></td>
+        <td><%= pizza.votes.count %></td> 
+        <td><%= pizza.temperatures.empty? ? 'None' : pizza.temperatures[0].name %></td>  
+        <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
+        <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
+      </tr>
+  <% end %>
+<% else %>
+      <p>There are no pizzas in this category</p>
 <% end %>                      
-</table>
+  </table>
 </body>
