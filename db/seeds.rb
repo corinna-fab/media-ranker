@@ -53,26 +53,26 @@ end
 
 puts "Created #{count} users"
 
-temperatures = [
-  {
-    name: "Cold"
-  },
-  {
-    name: "Reheated"
-  },  
-  {
-    name: "Hot"
-  } 
-]
+# temperatures = [
+#   {
+#     name: "Cold"
+#   },
+#   {
+#     name: "Reheated"
+#   },  
+#   {
+#     name: "Hot"
+#   } 
+# ]
 
-count = 0
-temperatures.each do |temperature|
-  if Temperature.create(temperature)
-    count += 1
-  end
-end
+# count = 0
+# temperatures.each do |temperature|
+#   if Temperature.create(temperature)
+#     count += 1
+#   end
+# end
 
-puts "Created #{count} temperatures"
+# puts "Created #{count} temperatures"
 
 votes = [
   {
