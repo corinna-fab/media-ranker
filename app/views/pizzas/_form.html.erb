@@ -15,7 +15,7 @@
   <%= f.text_field :name %>
 
   <%= f.label :crust %>
-  <%= f.text_field :crust %>
+  <%= f.select :crust, ['thin', 'deep-dish', 'thick'] %>
 
   <%= f.label :sauce %>
   <%= f.text_field :sauce %>
@@ -25,9 +25,6 @@
 
   <%= f.label :toppings %>
   <%= f.text_field :toppings %>
-
-  <%= f.label :temperatures %>
-  <%= f.collection_check_boxes :temperature_ids, Temperature.all, :id, :name %>
 
   <%= f.submit "Submit", class: "pizza-button" %>
 <% end %>
