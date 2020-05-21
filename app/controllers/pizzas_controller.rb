@@ -21,7 +21,7 @@ class PizzasController < ApplicationController
 
   def create
     @pizza = Pizza.new(pizza_params)
-
+    @pizza.vote_count = 0
     if @pizza.save
       redirect_to @pizza
       return
@@ -78,6 +78,7 @@ class PizzasController < ApplicationController
 
       if new_upvote.save
         flash[:success] = "You have successfully voted on #{@pizza.name}!"
+        @pizza.vote_count += 1
       else
         render :new, status: :bad_request
         return

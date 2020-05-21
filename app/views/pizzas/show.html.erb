@@ -1,3 +1,4 @@
+
 <div class="pizza_card">
   <h1><%= @pizza[:name]%></h1>
   <br>
@@ -16,7 +17,7 @@
     <%= form_with model: @pizza, class: 'form-pizza' do |f| %>
       <p>Please provide the following information about your pizza:</p>
         <%= f.label :temperatures %>
-        <%= f.collection_check_boxes :temperature_ids, Temperature.all, :id, :name %>
+        <%= f.collection_check_boxes :temperature_ids, TEMPERATURES, :id, :name %>
       <%= f.submit "Submit", class: "pizza-button" %>
     <% end %>
   <% end %>
@@ -30,7 +31,7 @@
   <%= button_to "Return to Pizza List", pizzas_path, :method => :get, class: 'link' %>
 </div>
 
-<h4><%= @pizza.votes.to_a.count %> votes for this <%= @pizza.temperatures[0].name %> pizza</h4>
+<h4><%= @pizza.vote_count %> votes for this <%= @pizza.temperatures[0].name %> pizza</h4>
 
 <% if ! @pizza.votes.empty? %> 
   <table>                         

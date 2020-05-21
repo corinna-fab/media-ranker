@@ -19,6 +19,7 @@ CSV.foreach(PIZZA_FILE, :headers => true) do |row|
   pizza.sauce = row['sauce']
   pizza.cheese = row['cheese']
   pizza.toppings = row['toppings']
+  pizza.vote_count = row['vote_count']
   successful = pizza.save
   if !successful
     pizza_failures << pizzza

@@ -1,28 +1,28 @@
-crust,name,sauce,cheese,toppings
-thin,Pizza Marinara,Red,Mozzarella,Tomato Oregano Garlic Olive Oil
-thin,Pizza Margherita,Red,Mozzarella,Tomato Basil Olive Oil
-deep-dish,Chicago-style Pepperoni,Red,Mozzarella,Pepperoni
-thick,Chicken Tikka Masala Pizza,Tikka-Masala,Mozzarella,Chicken Onion Cilantro
-thick,Pesto Pizza with Goat Cheese,Pesto,Mozzarella,Kale Goat Cheese
-thin,Breakfast Pizza,Pesto,Mozzarella,Egg
-thick,Raspberry-Mascarpone Pizza,Lemon-Curd,Mascarpone, Powdered-Sugar Raspberries
-thin,Jalapeno Popper Pizza,Monterey Jack,Cream-Cheese Jalapeno Shallots Bacon Peppers
-thin,Taco Pizza,Beans,Cheddar,Ground-Beef Lettuce Tomato Olive Onion
-thin,BBQ Chicken Pizza,Red,Mozzarella,Chicken BBQ-Sauce
-thin,Olive and Pineapple Pizza,Red,Mozzarella,Olive Pineapple
-thick,Kale and Sausauge Pizza,Red,Ricotta,Kale Sausage
-thick,Hawaiian Pizza,Red,Mozzarella,Ham,Pineapple
-thin,Bacon Pizza,Red,Mozzarella,Bacon,Onion
-thick,Cheese Pizza,Red,Mozzarella,
-thin,Pesto Pepperoni Pizza,Pesto,Mozzarella,Pepperoni
-thin,Garlic Chicken Pizza,White,Mozzarella,Chicken Garlic Parmesan
-deep-dish,Takoyaki Pizza,Takoyaki,Mozzarella,Octopus Pickled-Ginger Bonito-Flakes Aonori
-thin,Goat Cheese and Spinach Pizza,White,Mozzarella,Goat Cheese Spinach Garlic
-thin,Animal Style Pizza,Thousand-Island,Mozzarella,Cheddar Caramlized-Onion
-deep-dish,Hamburger Pizza,Red,Cheddar,Ground-Beef Tomato Onion Lettuce
-deep-dish,Meat Lovers,Red,Mozzarella,Sausage Ground-Beef Pepperoni
-thick,Vegetarian Pizza,Red,Cashew,Peppers Artichoke Tomato Spinach
-thin,Vegan Pesto Pizza,Pesto,Cashew, 
-thick,Bulgogi Pizza,Korean-BBQ,Mozzarella,Bulgogi Onion Peppers Mushroom
-deep-dish,Mushroom Pepperoni Pizza,Red,Mozzarella,Mushroom Pepperoni
-thin,Carbonara Pizza,White,Mozzarella,Parmesan Onion Bacon Garlic
+crust,name,sauce,cheese,toppings, vote_count
+thin,Pizza Marinara,Red,Mozzarella,Tomato Oregano Garlic Olive Oil,,
+thin,Pizza Margherita,Red,Mozzarella,Tomato Basil Olive Oil,3,
+deep-dish,Chicago-style Pepperoni,Red,Mozzarella,Pepperoni,3,
+thick,Chicken Tikka Masala Pizza,Tikka-Masala,Mozzarella,Chicken Onion Cilantro,4,
+thick,Pesto Pizza with Goat Cheese,Pesto,Mozzarella,Kale Goat Cheese,6,
+thin,Breakfast Pizza,Pesto,Mozzarella,Egg,8,
+thick,Raspberry-Mascarpone Pizza,Lemon-Curd,Mascarpone, Powdered-Sugar Raspberries,2,
+thin,Jalapeno Popper Pizza,Monterey Jack,Cream-Cheese Jalapeno Shallots Bacon Peppers,1,
+thin,Taco Pizza,Beans,Cheddar,Ground-Beef Lettuce Tomato Olive Onion,6,
+thin,BBQ Chicken Pizza,Red,Mozzarella,Chicken BBQ-Sauce,9,
+thin,Olive and Pineapple Pizza,Red,Mozzarella,Olive Pineapple,3,
+thick,Kale and Sausauge Pizza,Red,Ricotta,Kale Sausage,3,
+thick,Hawaiian Pizza,Red,Mozzarella,Ham,Pineapple,4,
+thin,Bacon Pizza,Red,Mozzarella,Bacon,Onion,5,
+thick,Cheese Pizza,Red,Mozzarella,6,
+thin,Pesto Pepperoni Pizza,Pesto,Mozzarella,Pepperoni,3,
+thin,Garlic Chicken Pizza,White,Mozzarella,Chicken Garlic Parmesan,3,
+deep-dish,Takoyaki Pizza,Takoyaki,Mozzarella,Octopus Pickled-Ginger Bonito-Flakes Aonori,3,
+thin,Goat Cheese and Spinach Pizza,White,Mozzarella,Goat Cheese Spinach Garlic,5,
+thin,Animal Style Pizza,Thousand-Island,Mozzarella,Cheddar Caramlized-Onion,8,
+deep-dish,Hamburger Pizza,Red,Cheddar,Ground-Beef Tomato Onion Lettuce,3,
+deep-dish,Meat Lovers,Red,Mozzarella,Sausage Ground-Beef Pepperoni,3,
+thick,Vegetarian Pizza,Red,Cashew,Peppers Artichoke Tomato Spinach,1,
+thin,Vegan Pesto Pizza,Pesto,Cashew,0,
+thick,Bulgogi Pizza,Korean-BBQ,Mozzarella,Bulgogi Onion Peppers Mushroom,6,
+deep-dish,Mushroom Pepperoni Pizza,Red,Mozzarella,Mushroom Pepperoni,5,
+thin,Carbonara Pizza,White,Mozzarella,Parmesan Onion Bacon Garlic,9,
