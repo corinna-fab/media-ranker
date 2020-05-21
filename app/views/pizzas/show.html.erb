@@ -9,10 +9,6 @@
   <p><%= @pizza[:cheese]%></p>
   <h4>Toppings:</h4>
   <p><%= @pizza[:toppings]%></p>
-    <h4>Votes:</h4>
-  <p>
-      <%= @pizza.votes.to_a.count %>
-  </p>
   <h4>Temperature:</h4>
   <% if @pizza.temperatures[0].class != NilClass %>
     </p><%= @pizza.temperatures[0].name %></p>
@@ -32,4 +28,23 @@
   </div>  <div class="button-row">
   <%= button_to "Delete", pizza_path(@pizza.id),:method => :delete, class: 'link', data: {confirm: "Are you sure you would like to delete #{@pizza.name}?"} %>
   <%= button_to "Return to Pizza List", pizzas_path, :method => :get, class: 'link' %>
-</div> 
+</div>
+
+<h4><%= @pizza.votes.to_a.count %> votes for this <%= @pizza.temperatures[0].name %> pizza</h4>
+
+<% if ! @pizza.votes.empty? %> 
+  <table>                         
+    <tr>                          
+      <th>Username</th>
+      <th>Date</th>
+    </tr>
+  
+    <% @pizza.votes.each do |vote| %>  
+      <tr>
+        <td><%= User.find_by(id: vote.user_id).name %></td>
+        <td><%= vote.created_at.strftime("%m/%d/%Y") %></td>  
+      </tr>
+    <% end %>                    
+  </table>
+<% end %>  
+      
