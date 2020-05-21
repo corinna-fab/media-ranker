@@ -4,23 +4,35 @@
 
   <div>
     <h3 class="title">Cold Pizza</h3>
-    <% Pizza.top_ten("Cold").each do |pizza| %>
-      <%= pizza.name %>
-      <br>
-    <% end%>
+    <% if ! Pizza.pizzas_by_temperature('Cold').nil? %>
+      <% Pizza.top_ten("Cold").each do |pizza| %>
+        <%= pizza.name %>
+        <br>
+      <% end%>
+    <% else %>
+      <p>There are no pizzas in this category</p>
+    <% end %>
   </div>
   <div>
     <h3 class="title">Reheated Pizza</h3>
-        <% Pizza.top_ten("Reheated").each do |pizza| %>
-      <%= pizza.name %>
-      <br>
-    <% end%>
+    <% if ! Pizza.pizzas_by_temperature('Reheated').nil? %>
+      <% Pizza.top_ten("Reheated").each do |pizza| %>
+        <%= pizza.name %>
+        <br>
+      <% end%>
+    <% else %>
+      <p>There are no pizzas in this category</p>
+    <% end %>
   </div>
   <div>
     <h3 class="title">Hot Pizza</h3>
-        <% Pizza.top_ten("Hot").each do |pizza| %>
-      <%= pizza.name %>
-      <br>
-    <% end%>
+    <% if ! Pizza.pizzas_by_temperature('Hot').nil? %>
+      <% Pizza.top_ten("Hot").each do |pizza| %>
+        <%= pizza.name %>
+        <br>
+      <% end%>
+    <% else %>
+      <p>There are no pizzas in this category</p>
+    <% end %>
   </div>
 </body>
