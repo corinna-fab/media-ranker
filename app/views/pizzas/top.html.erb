@@ -7,9 +7,9 @@
   <h2 class="title">Pizza by Temperature</h2>
 
   <div>
-    <h3 class="title">Top Cold Pizzas</h3>
-    <% if ! Pizza.pizzas_by_temperature('Cold').nil? %>
-      <% Pizza.top_ten("Cold").each do |pizza| %>
+    <h3 class="title">Top Thin Pizzas</h3>
+    <% if ! Pizza.pizzas_by_crust('thin').nil? %>
+      <% Pizza.top_ten("thin").each do |pizza| %>
         <%= link_to pizza.name, pizza_path(pizza.id) %>
         <p>Votes:<%= pizza.votes.count %></p>
       <% end%>
@@ -18,9 +18,9 @@
     <% end %>
   </div>
   <div>
-    <h3 class="title">Top Reheated Pizzas</h3>
-    <% if ! Pizza.pizzas_by_temperature('Reheated').nil? %>
-      <% Pizza.top_ten("Reheated").each do |pizza| %>
+    <h3 class="title">Top Deep-dish Pizzas</h3>
+    <% if ! Pizza.pizzas_by_crust('deep-dish').nil? %>
+      <% Pizza.top_ten("deep-dish").each do |pizza| %>
         <%= link_to pizza.name, pizza_path(pizza.id) %>
         <p>Votes:<%= pizza.votes.count %></p>
         <br>
@@ -30,9 +30,9 @@
     <% end %>
   </div>
   <div>
-    <h3 class="title">Top Hot Pizzas</h3>
-    <% if ! Pizza.pizzas_by_temperature('Hot').nil? %>
-      <% Pizza.top_ten("Hot").each do |pizza| %>
+    <h3 class="title">Top Thick Pizzas</h3>
+    <% if ! Pizza.pizzas_by_crust('thick').nil? %>
+      <% Pizza.top_ten("thick").each do |pizza| %>
         <%= link_to pizza.name, pizza_path(pizza.id) %>
         <p>Votes:<%= pizza.votes.count %></p>
       <% end%>
