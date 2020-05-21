@@ -60,20 +60,19 @@ class PizzasController < ApplicationController
   end
 
   def upvote
-    user = User.find_by(id: session[:user_id])
-
-    if user.nil?
+    @user = User.find_by(id: session[:user_id])
+    @pizza = Pizza.find_by(id: params[:id])
+    
+    if @user.nil?
       flash[:warning] = "You must be logged in to vote."
-      return
-    elsif user.votes.nil?
-      head :not_found
+      redirect_to pizza_path
       return
     end
 
-    if user.votes.include? @pizza.id
+    if @user.votes.include? @pizza.id
       flash[:warning] = "You have already voted on #{@pizza.name}!"
     else
-      new_vote = Vote.new(user_id: user.id, pizza_id: @pizza.id)
+      new_vote = Vote.new(user_id: @user.id, pizza_id: @pizza.id)
 
       if new_vote.save
         flash[:success] = "You have successfully voted on #{@pizza.name}!"
