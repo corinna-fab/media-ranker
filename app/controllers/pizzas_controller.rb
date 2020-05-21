@@ -1,5 +1,5 @@
 class PizzasController < ApplicationController
-  before_action :require_login, only: [:upvote]
+  # before_action :require_login, only: [:upvote]
 
   def index
     @pizzas = Pizza.paginate(:page=>params[:page],:per_page=>15).order(updated_at: :desc)
@@ -78,7 +78,11 @@ class PizzasController < ApplicationController
 
       if new_upvote.save
         flash[:success] = "You have successfully voted on #{@pizza.name}!"
-        @pizza.vote_count += 1
+        if @pizza.vote_count.nil?
+          @pizza.vote_count = 1
+        else
+          @pizza.vote_count += 1
+        end
       else
         render :new, status: :bad_request
         return

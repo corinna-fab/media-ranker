@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_154934) do
+ActiveRecord::Schema.define(version: 2020_05_21_212802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,13 +24,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_154934) do
     t.integer "vote_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "pizzas_temperatures", force: :cascade do |t|
-    t.bigint "pizza_id"
-    t.bigint "temperature_id"
-    t.index ["pizza_id"], name: "index_pizzas_temperatures_on_pizza_id"
-    t.index ["temperature_id"], name: "index_pizzas_temperatures_on_temperature_id"
   end
 
   create_table "temperatures", force: :cascade do |t|

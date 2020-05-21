@@ -20,7 +20,7 @@
   <%= button_to "Return to Pizza List", pizzas_path, :method => :get, class: 'link' %>
 </div>
 
-<h4><%= @pizza.vote_count %> votes for this <%= @pizza.crust %> pizza</h4>
+<h4><%= @pizza.votes.count %> votes for this <%= @pizza.crust %> pizza</h4>
 
 <% if ! @pizza.votes.empty? %> 
   <table>                         
