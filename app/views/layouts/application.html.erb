@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="js-focus-visible">
   <head>
     <title>MediaRanker</title>
     <%= csrf_meta_tags %>
@@ -8,28 +8,33 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<div class="all">
-<header>
-    <h1>Pizza Ranker</h1>
-  </header>
-  <body>
-  <header>
-    <nav class="mainnav">
-      <ul class="navtitles">
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Add a Pizza', new_pizza_path %></li>
-        <li><%= link_to 'All Pizzas', pizzas_path %></li>
-        <li><%= link_to 'All Users', users_path %></li>
-        <li><%= link_to "Login", login_path %></li>
+<body>
+<header class="app-header__header">
+    <h1>
+      <%= link_to 'Pizza Ranker', root_path%>
+      <small>Ranking the Best of Everything</small>
+    </h1>
+    
+
+    <nav class="app-header__nav">
+      <ul class="nav app-header__site-nav-container">
+        <li class="nav-item app-header__nav_item"><%= link_to 'Home', root_path, :class => "nav-link"%></li>
+        <li class="nav-item app-header__nav_item"><%= link_to 'Add a Pizza', new_pizza_path, :class => "nav-link" %></li>
+        <li class="nav-item app-header__nav_item"><%= link_to 'All Pizzas', pizzas_path, :class => "nav-link" %></li>
+        <li class="nav-item app-header__nav_item"><%= link_to 'All Users', users_path, :class => "nav-link" %></li>
+      </ul>
+      <ul class="nav app-header__site-nav-container"">
+        <li class="nav-item app-header__nav_item">
+            <div>
+              <% if session[:user_id] %>
+                <%= link_to "Log out from #{User.find_by(id: session[:user_id]).name}", logout_path, method: :post, :class => "btn btn-primary" %> 
+              <% else %>
+                <%= render partial: "users/form", locals: { action_name: "Edit" } %>
+              <% end %>
+            </div>
+        </li> 
       </ul>
     </nav>
-    <div class="btn btn-info">
-      <% if session[:user_id] %>
-        <%= link_to "Log out from #{User.find_by(id: session[:user_id]).name}", logout_path, method: :post, :class => "btn" %> 
-      <% else %>
-        <%= render partial: "users/form", locals: { action_name: "Edit" } %>
-      <% end %>
-    </div>
   </header>
     <section class="flash-msg__section">
     <% flash.each do |name, message| %>
@@ -39,9 +44,9 @@
     <% end %>
   </section>
     <%= yield %>
-  </body>
   <footer>
     <p><i>Always read the fine print.</i></p>
   </footer>
+</body>
 </html>
 
