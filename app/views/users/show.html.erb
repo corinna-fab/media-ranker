@@ -1,0 +1,30 @@
+
+<div class="user_card">
+  <h1>User Summary: <%= @user[:name]%></h1>
+  <br>
+</div>
+
+<div class="button-row"> 
+  <%= button_to 'Return to Users List', users_path %></li>
+  <%= button_to "Return to Pizza List", pizzas_path, class: 'link' %>
+</div>
+
+<h4><%= @user.name %>has voted <%= @user.votes.count %> times</h4>
+
+<% if ! @user.votes.empty? %> 
+  <table>                         
+    <tr>                          
+      <th>Pizza</th>
+      <th>Crust</th>
+      <th>Voted On</th>
+    </tr>
+  
+    <% @user.votes.each do |vote| %>  
+      <tr>
+        <td><%= Pizza.find_by(id: vote.pizza_id).name %></td>
+        <td><%= vote.created_at.strftime("%m/%d/%Y") %></td>  
+      </tr>
+    <% end %>                    
+  </table>
+<% end %>  
+      
