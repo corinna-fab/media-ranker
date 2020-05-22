@@ -21,7 +21,8 @@
   
     <% @user.votes.each do |vote| %>  
       <tr>
-        <td><%= Pizza.find_by(id: vote.pizza_id).name %></td>
+        <td><%= link_to Pizza.find_by(id: vote.pizza_id).name, pizza_path(vote.pizza_id) %></td>
+        <td><%= Pizza.find_by(id: vote.pizza_id).crust %></td>  
         <td><%= vote.created_at.strftime("%m/%d/%Y") %></td>  
       </tr>
     <% end %>                    
