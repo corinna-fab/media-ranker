@@ -4,41 +4,62 @@
 <%
 =end%>
 
-<body >
-  <h2 class="title">Pizza by Crust</h2>
-
-  <div>
-    <h3 class="title">Top Thin Pizzas</h3>
-    <% if ! Pizza.pizzas_by_crust('thin').nil? %>
-      <% Pizza.top_ten("thin").each do |pizza| %>
-        <%= link_to pizza.name, pizza_path(pizza.id) %>
-        <p>Votes:<%= pizza.votes.count %></p>
-      <% end%>
-    <% else %>
-      <p>There are no pizzas in this category</p>
-    <% end %>
-  </div>
-  <div>
-    <h3 class="title">Top Deep-dish Pizzas</h3>
-    <% if ! Pizza.pizzas_by_crust('deep-dish').nil? %>
-      <% Pizza.top_ten("deep-dish").each do |pizza| %>
-        <%= link_to pizza.name, pizza_path(pizza.id) %>
-        <p>Votes:<%= pizza.votes.count %></p>
-        <br>
-      <% end%>
-    <% else %>
-      <p>There are no pizzas in this category</p>
-    <% end %>
-  </div>
-  <div>
-    <h3 class="title">Top Thick Pizzas</h3>
-    <% if ! Pizza.pizzas_by_crust('thick').nil? %>
-      <% Pizza.top_ten("thick").each do |pizza| %>
-        <%= link_to pizza.name, pizza_path(pizza.id) %>
-        <p>Votes:<%= pizza.votes.count %></p>
-      <% end%>
-    <% else %>
-      <p>There are no pizzas in this category</p>
-    <% end %>
-  </div>
+<body>
+<main>
+<section class="top-ten__container">
+  <section class="top-ten__list-container">
+    <div>
+      <h2 class="top-ten__header">Top Thin</h2>
+      <% if ! Pizza.pizzas_by_crust('thin').nil? %>
+        <ul class="list-group top-ten__list">
+          <% Pizza.top_ten("thin").each do |pizza| %>
+            <li class="list-group-item">
+              <h4><%= link_to pizza.name, pizza_path(pizza.id) %>
+              <small class="top-ten__creator"><%= pizza.crust %></small></h4>
+              <p><%= pizza.votes.count %> votes</p>
+            </li>
+          <% end%>
+          </ul>
+      <% else %>
+        <p>There are no pizzas in this category</p>
+      <% end %>
+    </div>
+  </section>
+    <section class="top-ten__list-container">
+    <div>
+      <h2 class="top-ten__header">Top Thick</h2>
+      <% if ! Pizza.pizzas_by_crust('thick').nil? %>
+        <ul class="list-group top-ten__list">
+          <% Pizza.top_ten("thick").each do |pizza| %>
+            <li class="list-group-item">
+              <h4><%= link_to pizza.name, pizza_path(pizza.id) %>
+              <small class="top-ten__creator"><%= pizza.crust %></small></h4>
+              <p><%= pizza.votes.count %> votes</p>
+            </li>
+          <% end%>
+          </ul>
+      <% else %>
+        <p>There are no pizzas in this category</p>
+      <% end %>
+    </div>
+  </section>
+    <section class="top-ten__list-container">
+    <div>
+      <h2 class="top-ten__header">Top Deep-Dish</h2>
+      <% if ! Pizza.pizzas_by_crust('deep-dish').nil? %>
+        <ul class="list-group top-ten__list">
+          <% Pizza.top_ten("deep-dish").each do |pizza| %>
+            <li class="list-group-item">
+              <h4><%= link_to pizza.name, pizza_path(pizza.id) %>
+              <small class="top-ten__creator"><%= pizza.crust %></small></h4>
+              <p><%= pizza.votes.count %> votes</p>
+            </li>
+          <% end%>
+          </ul>
+      <% else %>
+        <p>There are no pizzas in this category</p>
+      <% end %>
+    </div>
+  </section>
+  </main>
 </body>
