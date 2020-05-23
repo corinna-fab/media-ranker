@@ -1,77 +1,99 @@
 
-<body >
-<h2 class="title">Pizza Page</h2>
+<main>
+<h2 class="title">List of Pizzas</h2>
 
-<h3 class="title">Thin Pizza</h2>
-<table>                         
-  <tr>                          
-    <th>Name</th>
-    <th>Crust</th>
-    <th>Sauce</th>
-    <th>Cheese</th>
-    <th>Toppings</th>
-    <th>Vote Count</th>
-  </tr>
-  <% Pizza.pizzas_by_crust("thin").each do |pizza| %>  
-      <tr>
-        <td><%= pizza.name %></td>
-        <td><%= pizza.crust %></td>  
-        <td><%= pizza.sauce %></td>  
-        <td><%= pizza.cheese %></td>  
-        <td><%= pizza.toppings %></td>
-        <td><%= pizza.votes.count %></td> 
-        <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
-        <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
+<section class="media-table">
+  <h4>Thin Pizza</h4>
+  <table class="table">                         
+    <thead>
+      <tr>   
+        <th width="80">Votes</th>                       
+        <th>Name</th>
+        <th>Crust</th>
+        <th>Sauce</th>
+        <th>Cheese</th>
+        <th>Toppings</th>
+        <th>Created</th>
+        <th>Upvote</th>
       </tr>
-  <% end %>                     
-  </table>
-
-<h3 class="title">Deep-Dish Pizza</h2>
-<table>                         
-  <tr>                          
-    <th>Name</th>
-    <th>Crust</th>
-    <th>Sauce</th>
-    <th>Cheese</th>
-    <th>Toppings</th>
-    <th>Vote Count</th>
-  </tr>
-  <% Pizza.pizzas_by_crust("deep-dish").each do |pizza| %>  
-      <tr>
-        <td><%= pizza.name %></td>
-        <td><%= pizza.crust %></td>  
-        <td><%= pizza.sauce %></td>  
-        <td><%= pizza.cheese %></td>  
-        <td><%= pizza.toppings %></td>
-        <td><%= pizza.votes.count %></td> 
-        <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
-        <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
+    </thead>
+    </tbody>
+      <% Pizza.pizzas_by_crust("thin").each do |pizza| %>  
+          <tr>
+            <td><%= pizza.votes.count %></td>
+            <td><%= link_to pizza.name, pizza_path(pizza.id) %></td>
+            <td><%= pizza.crust %></td>  
+            <td><%= pizza.sauce %></td>  
+            <td><%= pizza.cheese %></td>  
+            <td><%= pizza.toppings %></td> 
+            <td><%= pizza.created_at.strftime("%m/%d/%Y") %></td> 
+            <td><%= button_to "Upvote Pizza", upvote_path(pizza.id), method: :post, class: 'btn btn-primary' %></td>
+          </tr>
+      <% end %>
+    </tbody>                     
+    </table>
+  </section>
+<section class="media-table">
+  <h4>Thick Pizza</h4>
+  <table class="table">                         
+    <thead>
+      <tr>   
+        <th width="80">Votes</th>                       
+        <th>Name</th>
+        <th>Crust</th>
+        <th>Sauce</th>
+        <th>Cheese</th>
+        <th>Toppings</th>
+        <th>Created</th>
+        <th>Upvote</th>
       </tr>
-  <% end %>                     
-  </table>
+    </thead>
+    </tbody>
+      <% Pizza.pizzas_by_crust("thick").each do |pizza| %>  
+          <tr>
+            <td><%= pizza.votes.count %></td>
+            <td><%= link_to pizza.name, pizza_path(pizza.id) %></td>
+            <td><%= pizza.crust %></td>  
+            <td><%= pizza.sauce %></td>  
+            <td><%= pizza.cheese %></td>  
+            <td><%= pizza.toppings %></td> 
+            <td><%= pizza.created_at.strftime("%m/%d/%Y") %></td> 
+            <td><%= button_to "Upvote Pizza", upvote_path(pizza.id), method: :post, class: 'btn btn-primary' %></td>
+          </tr>
+      <% end %>
+    </tbody>                     
+    </table>
+  </section>
 
-<h3 class="title">Thick Pizza</h2>
-<table>                         
-  <tr>                          
-    <th>Name</th>
-    <th>Crust</th>
-    <th>Sauce</th>
-    <th>Cheese</th>
-    <th>Toppings</th>
-    <th>Vote Count</th>
-  </tr>
-  <% Pizza.pizzas_by_crust("thick").each do |pizza| %>  
-      <tr>
-        <td><%= pizza.name %></td>
-        <td><%= pizza.crust %></td>  
-        <td><%= pizza.sauce %></td>  
-        <td><%= pizza.cheese %></td>  
-        <td><%= pizza.toppings %></td>
-        <td><%= pizza.votes.count %></td> 
-        <td><%= link_to "Pizza Details", pizza_path(pizza.id), :method => :get%>  </td>
-        <td><%= link_to "Edit Pizza", edit_pizza_path(pizza.id), :method => :get%></td>
+  <section class="media-table">
+  <h4>Deep-Dish Pizza</h4>
+  <table class="table">                         
+    <thead>
+      <tr>   
+        <th width="80">Votes</th>                       
+        <th>Name</th>
+        <th>Crust</th>
+        <th>Sauce</th>
+        <th>Cheese</th>
+        <th>Toppings</th>
+        <th>Created</th>
+        <th>Upvote</th>
       </tr>
-  <% end %>                     
-  </table>
-
-</body>
+    </thead>
+    </tbody>
+      <% Pizza.pizzas_by_crust("deep-dish").each do |pizza| %>  
+          <tr>
+            <td><%= pizza.votes.count %></td>
+            <td><%= link_to pizza.name, pizza_path(pizza.id) %></td>
+            <td><%= pizza.crust %></td>  
+            <td><%= pizza.sauce %></td>  
+            <td><%= pizza.cheese %></td>  
+            <td><%= pizza.toppings %></td> 
+            <td><%= pizza.created_at.strftime("%m/%d/%Y") %></td> 
+            <td><%= button_to "Upvote Pizza", upvote_path(pizza.id), method: :post, class: 'btn btn-primary' %></td>
+          </tr>
+      <% end %>
+    </tbody>                     
+    </table>
+  </section>
+  </main>

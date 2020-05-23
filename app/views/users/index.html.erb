@@ -1,20 +1,26 @@
 <%#index.html.erb%>
-
-<h1>User List</h1>
-<table>
-    <tr>
-      <th>Username</th>
-      <th>Votes</th>
-      <th>Joined</th>
-    </tr>
+<main>
+<h2>List of Users</h2>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Votes</th>
+        <th>Joined</th>
+      </tr>
+    </thead>
   <% @users.each do |user|  %>
-    <tr>
-      <td><%= link_to user.name, user_path(user) %></td>
-      <td><%= user.votes.count %></td>
-      <td><%= user.created_at.strftime("%m/%d/%Y") %></td> 
-    </tr>
+    <tbody>
+      <tr>
+        <td><%= link_to user.name, user_path(user) %></td>
+        <td><%= user.votes.count %></td>
+        <td><%= user.created_at.strftime("%m/%d/%Y") %></td> 
+      </tr>
+    </tbody>
   <% end %>
 </table>
+<%= button_to "Return to Pizza List", pizzas_path, :method => :get, class: 'btn btn-primary' %>
+</main>
 
       <%
 =begin%>
