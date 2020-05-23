@@ -12,4 +12,9 @@ class Pizza < ApplicationRecord
   def self.top_ten(temperature_name)
     return @crust_list[0..9]
   end
+
+  def self.spotlight
+    @spotlight_pizza = Pizza.all.sort_by{ |pizza| -pizza.votes.count }
+    return @spotlight_pizza[0]
+  end
 end

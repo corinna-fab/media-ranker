@@ -6,6 +6,17 @@
 
 <body>
 <main>
+
+<section class="spotlight">
+  <h2 class="spotlight__header">
+    <span class="spotlight__header--prefix">
+        Pizza Spotlight:
+    </span>
+    <%= Pizza.spotlight.name %>
+  </h2>
+  <p><%= Pizza.spotlight.votes.count %> votes</p>
+</section>
+
 <section class="top-ten__container">
   <section class="top-ten__list-container">
     <div>
