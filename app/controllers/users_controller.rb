@@ -52,11 +52,13 @@ class UsersController < ApplicationController
 
   def current
     @user = User.find_by(id: session[:user_id])
+    
     if @user.nil?
       flash[:error] = "You must be logged in to view this page"
       redirect_to root_path
       return
     end
+    
   end
 
   private 

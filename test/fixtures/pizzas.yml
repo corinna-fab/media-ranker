@@ -1,0 +1,42 @@
+macncheese:
+  name: Mac n Cheese Pizza
+  crust: thin
+  sauce: nacho cheese
+  toppings: bacon macncheese
+spicytacoparty:
+  name: Spicy Taco Party
+  crust: deep-dish
+  sauce: enchilada sauce
+  toppings: taco meat black olives
+picklerick:
+  name: Pickle Rick
+  crust: thin
+  sauce: pickle juice
+  toppings: pickles
+thinpizza3:
+  name: Pizza3
+  crust: thin
+thinpizza4:
+  name: Pizza4
+  crust: thin
+thinpizza5:
+  name: Pizza5
+  crust: thin
+thinpizza6:
+  name: Pizza6
+  crust: thin
+thinpizza7:
+  name: Pizza7
+  crust: thin
+thinpizza8:
+  name: Pizza8
+  crust: thin
+thinpizza9:
+  name: Pizza9
+  crust: thin
+thinpizza10:
+  name: Pizza10
+  crust: thin
+thinpizza11:
+  name: Pizza11
+  crust: thin

@@ -96,7 +96,7 @@ class PizzasController < ApplicationController
   private
 
   def pizza_params
-    return params.require(:pizza).permit(:name, :crust, :sauce, :cheese, :toppings, temperature_ids: [])
+    return params.require(:pizza).permit(:name, :crust, :sauce, :cheese, :toppings)
   end
   
 
