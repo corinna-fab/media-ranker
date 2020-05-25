@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
   def require_login
     if @current_user.nil?
-      flash[:error] = "Sorry, you must be logged in to upvote a pizza."
-      redirect_to root_path
+      flash[:error] = "Sorry, you must be logged in to do that."
+      redirect_to pizza_path
       return
     end
   end

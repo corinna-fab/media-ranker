@@ -31,7 +31,6 @@ describe User do
       expect(result).must_equal false 
       expect(new_user.errors.messages[:name].include?("has already been taken")).must_equal true 
     end
-
   end
 
   describe "relationships" do
@@ -51,19 +50,6 @@ describe User do
       expect(@user.pizzas[0].id).must_equal @pizza_one.id
       expect(@user.pizzas[1].id).must_equal @pizza_two.id
     end
-
-  end
-
-  # Tests for methods you create should go here
-  describe "custom methods" do
-    describe "request a ride" do
-      # Your code here
-    end
-
-    describe "complete trip" do
-      # Your code here
-    end
-    # You may have additional methods to test here
   end
 end
 

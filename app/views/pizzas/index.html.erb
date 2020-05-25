@@ -1,4 +1,8 @@
-
+<%
+=begin%>
+  In another life I would have come back to this page and dried it up drastically -- no reason to have this repeated three times.
+<%
+=end%>
 <main>
 <h2 class="title">List of Pizzas</h2>
 
@@ -49,7 +53,9 @@
       </tr>
     </thead>
     </tbody>
-      <% Pizza.pizzas_by_crust("thick").each do |pizza| %>  
+      <% if Pizza.pizzas_by_crust("thin").empty? %>
+        <p>No pizzas here</p>
+      <% else Pizza.pizzas_by_crust("thin").each do |pizza| %>  
           <tr>
             <td><%= pizza.votes.count %></td>
             <td><%= link_to pizza.name, pizza_path(pizza.id) %></td>
@@ -60,6 +66,7 @@
             <td><%= pizza.created_at.strftime("%m/%d/%Y") %></td> 
             <td><%= button_to "Upvote Pizza", upvote_path(pizza.id), method: :post, class: 'btn btn-primary' %></td>
           </tr>
+        <% end %>
       <% end %>
     </tbody>                     
     </table>
@@ -81,7 +88,9 @@
       </tr>
     </thead>
     </tbody>
-      <% Pizza.pizzas_by_crust("deep-dish").each do |pizza| %>  
+      <% if Pizza.pizzas_by_crust("deep-dish").nil? %>
+        <p>No pizzas here</p>
+      <% else Pizza.pizzas_by_crust("deep-dish").each do |pizza| %>  
           <tr>
             <td><%= pizza.votes.count %></td>
             <td><%= link_to pizza.name, pizza_path(pizza.id) %></td>
@@ -92,6 +101,7 @@
             <td><%= pizza.created_at.strftime("%m/%d/%Y") %></td> 
             <td><%= button_to "Upvote Pizza", upvote_path(pizza.id), method: :post, class: 'btn btn-primary' %></td>
           </tr>
+        <% end %>
       <% end %>
     </tbody>                     
     </table>

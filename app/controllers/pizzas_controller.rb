@@ -61,6 +61,7 @@ class PizzasController < ApplicationController
     @pizzas = Pizza.all
   end
 
+
   def upvote
     @user = User.find_by(id: session[:user_id])
     @pizza = Pizza.find_by(id: params[:id])
@@ -93,6 +94,19 @@ class PizzasController < ApplicationController
     return
   end
 
+  def destroy
+    @pizza = Pizza.find_by(id: params[:id])
+
+    if @pizza.nil?
+      head :not_found
+      return
+    end
+
+    @pizza.destroy
+    flash[:success] = "Successfully deleted #{@pizza.name}" 
+    redirect_to root_path
+  end
+  
   private
 
   def pizza_params

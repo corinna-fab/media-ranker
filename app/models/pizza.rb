@@ -15,8 +15,8 @@ class Pizza < ApplicationRecord
       end
   end
 
-  def self.top_ten(temperature_name)
-    return @crust_list[0..9]
+  def self.top_ten(crust_name)
+    return Pizza.pizzas_by_crust(crust_name)[0..9]
   end
 
   def self.spotlight
