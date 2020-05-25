@@ -1,9 +1,3 @@
-<%
-=begin%>
- TODO: add pizza spotlight 
-<%
-=end%>
-
 <body>
 <main>
 
@@ -11,10 +5,11 @@
   <h2 class="spotlight__header">
     <span class="spotlight__header--prefix">
         Pizza Spotlight:
-    </span>
-    <%= Pizza.spotlight.name %>
+    <%= link_to Pizza.spotlight.name, pizza_path(Pizza.spotlight.id) %>,
+    <%= Pizza.spotlight.crust %> crust.
+     </span>
   </h2>
-  <p><%= Pizza.spotlight.votes.count %> votes</p>
+  <p class="spotlight__description"><%= Pizza.spotlight.votes.count %> votes</p>
 </section>
 
 <section class="top-ten__container">

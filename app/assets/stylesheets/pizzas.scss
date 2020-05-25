@@ -1,8 +1,13 @@
 // Place all the styles related to the Pizzas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
 a, h2, h3 {
   color: #26A69A;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 a {
@@ -13,7 +18,7 @@ a {
 }
 
 body, h1, h2, h3, h4, h5 {
-  font-family: "Gudea", sans-serif;
+  font-family: "Verdana", sans-serif;
 }
 
 .btn-row {
@@ -93,6 +98,18 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+}
+
+.spotlight {
+  padding: 0 2rem 2rem 2rem;
+}
+
+.spotlight__header {
+  color: #26A69A;
+}
+
+.spotlight__description {
+  margin-bottom: 0;
 }
 
 .table {

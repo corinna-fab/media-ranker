@@ -1,31 +1,39 @@
-
+<main>
 <div class="user_card">
-  <h2>User Summary: <%= @user[:name]%></h2>
+  <h2>User Summary: <%= link_to @user[:name], user_path(@user)%></h2>
+  <p>Joined site <%= @user.created_at.strftime("%m/%d/%Y") %>
   <br>
 </div>
 
-<div class="button-row"> 
-  <%= button_to 'Return to Users List', users_path %></li>
-  <%= button_to "Return to Pizza List", pizzas_path, class: 'link' %>
-</div>
-
-<h4><%= @user.name %>has voted <%= @user.votes.count %> times</h4>
+<section class="user-votes__container">
+  <h3 class="user-votes__header">
+    Votes
+  </h3>
 
 <% if ! @user.votes.empty? %> 
-  <table>                         
-    <tr>                          
-      <th>Pizza</th>
-      <th>Crust</th>
-      <th>Voted On</th>
-    </tr>
-  
+  <table class="table">                         
+    <thead>
+      <tr>                          
+        <th>Pizza</th>
+        <th>Crust</th>
+        <th>Voted On</th>
+      </tr>
+    </thead>
+    <tbody>
     <% @user.votes.each do |vote| %>  
       <tr>
         <td><%= link_to Pizza.find_by(id: vote.pizza_id).name, pizza_path(vote.pizza_id) %></td>
         <td><%= Pizza.find_by(id: vote.pizza_id).crust %></td>  
         <td><%= vote.created_at.strftime("%m/%d/%Y") %></td>  
       </tr>
-    <% end %>                    
+    <% end %> 
+    </tbody>                   
   </table>
 <% end %>  
+</section>
+
+<%= button_to 'Return to Users List', users_path, class:"btn btn-secondary" %></li>
+<%= button_to "Return to Pizza List", pizzas_path, class: 'btn btn-primary' %>
+
+</main>
       

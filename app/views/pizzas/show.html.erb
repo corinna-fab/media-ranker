@@ -31,7 +31,7 @@
     <% @pizza.votes.each do |vote| %>  
       <tbody>
         <tr>
-          <td><%= User.find_by(id: vote.user_id).name %></td>
+          <td><%= link_to User.find_by(id: vote.user_id).name, user_path(vote.user_id) %></td>
           <td><%= vote.created_at.strftime("%m/%d/%Y") %></td>  
         </tr>
       </tbody>
