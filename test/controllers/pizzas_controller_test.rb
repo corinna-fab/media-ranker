@@ -72,5 +72,4 @@ describe PizzasController do
       must_redirect_to pizza_path(new_pizza.id)
     end
   end
-
 end
